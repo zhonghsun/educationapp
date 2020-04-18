@@ -13,8 +13,10 @@ import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 import Mission from "./containers/Mission";
 import Challenge from "./containers/Challenge";
-import NewChallenge from "./containers/NewChallenge";
+import NewChallenge from "./containers/NewChallenge/NewChallenge";
 import ChallengeEdit from "./containers/ChallengeEdit";
+import Venues from "./containers/venues/Venues";
+import Venue from "./containers/venues/Venue";
 
 export default function Routes({ appProps }) {
   return (
@@ -23,6 +25,8 @@ export default function Routes({ appProps }) {
       <UnauthenticatedRoute path="/login" exact component={Login} appProps={appProps} />
       <UnauthenticatedRoute path="/signup" exact component={Signup} appProps={appProps} />
       <AuthenticatedRoute path="/settings" exact component={Settings} appProps={appProps} />
+      <AuthenticatedRoute path="/venues" exact component={Venues} appProps={appProps} />
+      <AuthenticatedRoute path="/venues/:id" exact component={Venue} appProps={appProps} />
       <AuthenticatedRoute path="/mission" exact component={Mission} appProps={appProps} />
       <AuthenticatedRoute path="/mission/new" exact component={NewNote} appProps={appProps} />
       <AuthenticatedRoute path="/mission/:id" exact component={Notes} appProps={appProps} />

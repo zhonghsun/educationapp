@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Auth } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import LoaderButton from "../components/LoaderButton";
-import { useFormFields } from "../libs/hooksLib";
-import "./Login.css";
+import React, { useState } from 'react';
+import { Auth } from 'aws-amplify';
+import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
+import LoaderButton from '../components/LoaderButton';
+import { useFormFields } from '../libs/hooksLib';
+import './Login.css';
 
 export default function Login(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [fields, handleFieldChange] = useFormFields({
-    email: "",
-    password: ""
+    email: '',
+    password: ''
   });
 
   function validateForm() {
@@ -22,7 +22,12 @@ export default function Login(props) {
     setIsLoading(true);
 
     try {
-      await Auth.signIn(fields.email, fields.password);
+      const user = await Auth.signIn(fields.email, fields.password);
+      if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
+        await Auth.completeNewPassword(user, 'A123321a!', { name: "dog" });
+      }
+
+      console.log((await Auth.currentSession()).getIdToken().getJwtToken())
       props.userHasAuthenticated(true);
     } catch (e) {
       alert(e.message);
@@ -34,16 +39,16 @@ export default function Login(props) {
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-          <ControlLabel>Email</ControlLabel>
+          <FormLabel>Email</FormLabel>
           <FormControl
             autoFocus
-            type="email"
+            type="text"
             value={fields.email}
             onChange={handleFieldChange}
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-          <ControlLabel>Password</ControlLabel>
+          <FormLabel>Password</FormLabel>
           <FormControl
             type="password"
             value={fields.password}

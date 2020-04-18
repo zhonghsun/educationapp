@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./Notes.css";
@@ -16,7 +16,7 @@ export default function Notes(props) {
 
   useEffect(() => {
     function loadNote() {
-      return API.get("notes", `/notes/${props.match.params.id}`);
+      return API.get("mission", `/mission/${props.match.params.id}`);
     }
 
     async function onLoad() {
@@ -52,7 +52,7 @@ export default function Notes(props) {
   }
   
   function saveNote(note) {
-    return API.put("notes", `/notes/${props.match.params.id}`, {
+    return API.put("mission", `/mission/${props.match.params.id}`, {
       body: note
     });
   }
@@ -90,7 +90,7 @@ export default function Notes(props) {
   }
   
   function deleteNote() {
-    return API.del("notes", `/notes/${props.match.params.id}`);
+    return API.del("mission", `/mission/${props.match.params.id}`);
   }
   
   async function handleDelete(event) {
@@ -137,7 +137,7 @@ export default function Notes(props) {
           </FormGroup>
           {note.attachment && (
             <FormGroup>
-              <ControlLabel>Attachment</ControlLabel>
+              <FormLabel>Attachment</FormLabel>
               <FormControl.Static>
                 <a
                   target="_blank"
@@ -150,7 +150,7 @@ export default function Notes(props) {
             </FormGroup>
           )}
           <FormGroup controlId="file">
-            {!note.attachment && <ControlLabel>Attachment</ControlLabel>}
+            {!note.attachment && <FormLabel>Attachment</FormLabel>}
             <FormControl onChange={handleFileChange} type="file" />
           </FormGroup>
           <LoaderButton

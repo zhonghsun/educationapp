@@ -23,15 +23,25 @@ Amplify.configure({
     API: {
       endpoints: [
         {
-          name: "notes",
-          endpoint: config.apiGateway.URL,
+          name: "venues",
+          endpoint: config.apiGateway.URL_VENUES,
           region: config.apiGateway.REGION
         },
         {
-          name: "challenge",
-          endpoint: config.apiGateway.URL1,
+          name: "missions",
+          endpoint: config.apiGateway.URL_MISSION,
           region: config.apiGateway.REGION
         },
+        {
+          name: "challenges",
+          endpoint: config.apiGateway.URL_CHALLENGES,
+          region: config.apiGateway.REGION
+        },
+        {
+          name: "terms",
+          endpoint: config.apiGateway.URL_TERMS,
+          region: config.apiGateway.REGION
+        }
       ]
     }
   });

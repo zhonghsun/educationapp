@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
-import "./Home.css";
-import { API } from "aws-amplify";
-import { LinkContainer } from "react-router-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import './Home.css';
+import { API } from 'aws-amplify';
+import { LinkContainer } from 'react-router-bootstrap';
+
+import { testVenues } from '../testFuncs/testVenues';
+import { testMissions } from '../testFuncs/testMissions';
+import { testTerms } from '../testFuncs/testTerms';
+import { testChallenges } from '../testFuncs/testChallenges';
 
 export default function Home(props) {
   const [notes, setNotes] = useState([]);
@@ -13,14 +18,29 @@ export default function Home(props) {
       if (!props.isAuthenticated) {
         return;
       }
-  
 
-  
       setIsLoading(false);
     }
-  
+
     onLoad();
   }, [props.isAuthenticated]);
+
+  // async function performAllTests() {
+  //   try {
+  //     await testVenues();
+  //     await testMissions();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
+
+  const makeTestFunc = func => async () => {
+    try {
+      await func();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   function renderLander() {
     return (
@@ -33,9 +53,12 @@ export default function Home(props) {
   function renderNotes() {
     return (
       <div className="notes">
-        <PageHeader>Admin website</PageHeader>
+        <h2>Admin website</h2>
         <ListGroup>
-
+          <button onClick={makeTestFunc(testVenues)}>Test Venues</button>
+          <button onClick={makeTestFunc(testMissions)}>Test Missions</button>
+          <button onClick={makeTestFunc(testTerms)}>Test Terms</button>
+          <button onClick={makeTestFunc(testChallenges)}>Test Challenges</button>
         </ListGroup>
       </div>
     );

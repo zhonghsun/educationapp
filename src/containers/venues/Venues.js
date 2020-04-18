@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
-import "./Mission.css";
+import "./Venues.css";
 import { API } from "aws-amplify";
 import { LinkContainer } from "react-router-bootstrap";
 
-export default function Home(props) {
-  const [notes, setNotes] = useState([]);
+export default function Venues(props) {
+  const [venues, setVenues] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -15,8 +15,8 @@ export default function Home(props) {
       }
   
       try {
-        const notes = await loadNotes();
-        setNotes(notes);
+        const venues = await loadVenues();
+        setVenues(venues);
       } catch (e) {
         alert(e);
       }
@@ -27,31 +27,31 @@ export default function Home(props) {
     onLoad();
   }, [props.isAuthenticated]);
   
-  function loadNotes() {
-    return API.get("mission", "/mission");
+  function loadVenues() {
+    return API.get("venues", "/venues");
   }
 
-  function renderNotesList(notes) {
-    return [{}].concat(notes).map((note, i) =>
+  function renderVenuesList(venues) {
+    return [{}].concat(venues).map((note, i) =>
       i !== 0 ? (
-        <LinkContainer key={note.id} to={`/mission/${note.id}`}>
+        <LinkContainer key={note.id} to={`/venues/${note.id}`}>
           <ListGroupItem header={note.title}>
-            {"Created: " + new Date(note.createdAt).toLocaleString()}
+            {"Created: " + new Date(note.date).toLocaleString()}
           </ListGroupItem>
         </LinkContainer>
       ) : (
         <div style={{display:'flex'}}>
-        <LinkContainer style={{width:'50%'}} key="new" to="/notes/new">
+        <LinkContainer style={{width:'50%'}} key="new" to="/venues/new">
           <ListGroupItem>
             <h4 >
-              <b>{"\uFF0B"}</b> Create a new Mission
+              <b>{"\uFF0B"}</b> Create a new Venue
             </h4>
           </ListGroupItem>
         </LinkContainer>
         <LinkContainer style={{width:'50%'}} key="new" to="/upload">
           <ListGroupItem>
             <h4>
-              <b></b> Upload Mission
+              <b></b> Upload Venue
             </h4>
           </ListGroupItem>
         </LinkContainer>
@@ -68,12 +68,12 @@ export default function Home(props) {
     );
   }
 
-  function renderNotes() {
+  function renderVenues() {
     return (
-      <div className="notes">
-        <h2>The list of Mission</h2>
+      <div className="venues">
+        <h2>Your venues:</h2>
         <ListGroup>
-          {!isLoading && renderNotesList(notes)}
+          {!isLoading && renderVenuesList(venues)}
         </ListGroup>
       </div>
     );
@@ -81,7 +81,7 @@ export default function Home(props) {
 
   return (
     <div className="Home">
-      {props.isAuthenticated ? renderNotes() : renderLander()}
+      {props.isAuthenticated ? renderVenues() : renderLander()}
     </div>
   );
 }

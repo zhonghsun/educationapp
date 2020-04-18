@@ -27,3 +27,25 @@
 .App .navbar-brand {
   font-weight: bold;
 }
+
+.clickable {
+  cursor: pointer;
+}
+
+.link {
+  cursor: pointer;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+.btn-delete:hover {
+  color: crimson;
+}
+
+.hover-selector + .show-on-hover {
+  opacity: 0;
+}
+.hover-selector:hover + .show-on-hover {
+  opacity: 1;
+}

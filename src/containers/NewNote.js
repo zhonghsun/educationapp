@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Form, FormLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewNote.css";
@@ -47,7 +47,7 @@ export default function NewMission(props) {
   }
   
   function createNote(note) {
-    return API.post("notes", "/notes", {
+    return API.post("mission", "/mission", {
       body: note
     });
   }
@@ -56,25 +56,25 @@ export default function NewMission(props) {
     <div className="NewNote">
       <form onSubmit={handleSubmit}>
         <h3>Title</h3>
-        <FormGroup controlId="title">
-          <FormControl
+        <Form.Group controlId="title">
+          <Form.Control
             value={title}
             componentType="text"
             onChange={e => settitle(e.target.value)}
           />
-        </FormGroup>
-        <FormGroup controlId="questions">
+        </Form.Group>
+        <Form.Group controlId="questions">
         <h3>Mission</h3>
-          <FormControl
+          <Form.Control
             value={questions}
             componentClass="textarea"
             onChange={e => setquestions(e.target.value)}
           />
-        </FormGroup>
-        <FormGroup controlId="file">
-          <ControlLabel>Attachment</ControlLabel>
-          <FormControl onChange={handleFileChange} type="file" />
-        </FormGroup>
+        </Form.Group>
+        <Form.Group controlId="file">
+          <FormLabel>Attachment</FormLabel>
+          <Form.Control onChange={handleFileChange} type="file" />
+        </Form.Group>
         <LoaderButton
           block
           type="submit"
