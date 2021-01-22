@@ -1,0 +1,20 @@
+.missionGroupContainer {
+  border-radius: 24px;
+  background: #ffffff;
+}
+
+.missionGroupImage {
+  width: 128px;
+  height: 128px;
+}
+
+.missionGroupDescriptionText {
+  font-size: 0.8em;
+  color: inherit;
+}
+
+.missionGroupDescriptionValueText {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

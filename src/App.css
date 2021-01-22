@@ -39,10 +39,6 @@
   text-decoration: underline;
 }
 
-.btn-delete:hover {
-  color: crimson;
-}
-
 .hover-selector + .show-on-hover {
   opacity: 0;
 }

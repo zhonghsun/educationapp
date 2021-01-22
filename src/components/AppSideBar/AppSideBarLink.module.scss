@@ -1,0 +1,27 @@
+.linkItem {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 24px 12px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+
+  color: inherit;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.activeLink {
+  color: #fff !important;
+  background: rgb(93, 192, 103);
+  box-shadow: 1px 4px 12px 3px rgba(66, 160, 72, 0.3);
+
+  &:hover {
+    background: rgb(70, 145, 78);
+  }
+}

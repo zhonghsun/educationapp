@@ -1,0 +1,43 @@
+@import 'styles/breakpoints.scss'; 
+
+.backgroundContainer {
+  position: fixed;
+  overflow: hidden;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  top: -32px;
+  left: -32px;
+  right: -32px;
+  bottom: -32px;
+  filter: blur(12px);
+  background: #42a048;
+  background: url("../../assets/loginbg.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.leftContainer {
+  flex: 6;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex: 1;
+  }
+}
+
+.formContainer {
+  color: #fff;
+  margin: auto;
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 3em 2em 1.5em;
+}

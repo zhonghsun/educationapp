@@ -4,8 +4,10 @@ import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
 import LoaderButton from '../components/LoaderButton';
 import { useFormFields } from '../libs/hooksLib';
 import './Login.css';
+import { useHistory } from 'react-router';
 
 export default function Login(props) {
+  const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [fields, handleFieldChange] = useFormFields({
     email: '',
@@ -29,6 +31,7 @@ export default function Login(props) {
 
       console.log((await Auth.currentSession()).getIdToken().getJwtToken())
       props.userHasAuthenticated(true);
+      history.push("/");
     } catch (e) {
       alert(e.message);
       setIsLoading(false);

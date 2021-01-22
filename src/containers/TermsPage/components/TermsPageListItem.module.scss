@@ -1,0 +1,23 @@
+@import 'styles/colors.scss';
+
+span.editButton {
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  
+  &:hover {
+    color: $primary-color;
+    background: $button-light-highlight;
+  }
+}
+
+span.deleteButton {
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  
+  &:hover {
+    color: var(--danger);
+    background: $button-light-highlight;
+  }
+}

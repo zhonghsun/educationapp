@@ -1,0 +1,53 @@
+@import "styles/colors.scss";
+
+.topics-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  background: #ffffff;
+}
+
+.topics-list-placeholder {
+  margin: auto 1em;
+}
+
+.topics-list-item {
+  background: #f3f3f3;
+  font-size: 1em;
+  padding: 6px;
+  padding-left: 18px;
+  margin: 0.2em 0;
+  margin-right: 0.5em;
+  display: flex;
+  width: 180px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.topics-list-item-input {
+  max-width: calc(100% - 36px);
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+
+.topics-remove-button {
+  background: transparent !important;
+  color: black;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.15) !important;
+  }
+}

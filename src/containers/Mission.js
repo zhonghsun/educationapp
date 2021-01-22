@@ -80,7 +80,7 @@ export default function Home(props) {
   }
 
   return (
-    <div className="Home">
+    <div className="root">
       {props.isAuthenticated ? renderNotes() : renderLander()}
     </div>
   );

@@ -1,0 +1,13 @@
+.loginButton {
+  color: #222222 !important;
+  background: #fff !important;
+  border: none;
+  margin: 1.5rem 0;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+
+  &:hover:enabled {
+    color: #fff !important;
+    background: #005500 !important;
+  }
+}

@@ -1,0 +1,62 @@
+@import "styles/colors.scss";
+
+.hovercard {
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    // background: rgba(50, 168, 82, 0.02);
+  }
+}
+
+.hoverbtn-primary:hover {
+  color: #007bff;
+}
+
+.hoverbtn-delete:hover {
+  color: crimson;
+}
+
+.highlight-primary {
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    background: #007bff;
+    color: #fff;
+  }
+}
+
+.primary-button {
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  background: $primary-color;
+  box-shadow: 1px 4px 12px 3px rgba(66, 160, 72, 0.3);
+  border-radius: 12px;
+  padding: 16px 32px;
+  border-color: transparent;
+
+  &:hover {
+    background: $primary-color-light-highlight;
+    box-shadow: 1px 4px 18px 6px rgba(66, 160, 72, 0.3);
+    border-color: transparent;
+  }
+
+  &:disabled {
+    background: $primary-color-light-highlight;
+    border-color: transparent;
+  }
+}
+
+.secondary-button {
+  transition: all 0.3s ease-in-out;
+  color: inherit;
+  background: transparent;
+  border-radius: 12px;
+  padding: 16px 32px;
+  background: rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    box-shadow: 1px 4px 12px 3px rgba(0, 0, 0, 0.15);
+  }
+}

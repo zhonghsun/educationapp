@@ -1,16 +1,25 @@
-import React from 'react';
-import { Accordion, Card, Button } from 'react-bootstrap';
+import clsx from "clsx";
+import React from "react";
+import { Accordion, Card, Button } from "react-bootstrap";
 
-const CollapsiblePanel = ({ headerClass, bodyClass, title, eventKey, children }) => {
+const CollapsiblePanel = ({
+  className = "",
+  headerRootClass = "",
+  headerClass = "",
+  bodyClass = "",
+  title,
+  eventKey,
+  children,
+}) => {
   return (
-    <Card>
-      <Card.Header>
+    <Card className={className}>
+      <div className={headerRootClass}>
         <Accordion.Toggle as="div" eventKey={eventKey} className={headerClass}>
           {title}
         </Accordion.Toggle>
-      </Card.Header>
+      </div>
       <Accordion.Collapse eventKey={eventKey}>
-        <Card.Body className={bodyClass}>{children}</Card.Body>
+        <Card.Body className={clsx("border-top", bodyClass)}>{children}</Card.Body>
       </Accordion.Collapse>
     </Card>
   );

@@ -1,0 +1,10 @@
+.appcard {
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+
+  &.hoverable:hover {
+    box-shadow: 0 6px 24px 4px rgba(50, 168, 82, 0.25);
+  }
+}

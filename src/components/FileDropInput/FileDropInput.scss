@@ -1,0 +1,27 @@
+.filedropinput {
+  & > input {
+    padding: 2em 0;
+  }
+}
+
+.filedropinput-preview {
+  border: 1px solid #ced4da;
+  height: 120px;
+  width: 100%;
+  object-fit: contain;
+  margin: 12px 0;
+  padding: 12px;
+}
+
+.filedrop-input-clearbtn {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+}
+
+.filedropinput-dragover {
+  & label {
+    background: #007bff;
+    color: #fff;
+  }
+}
