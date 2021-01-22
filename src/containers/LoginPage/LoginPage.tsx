@@ -26,7 +26,7 @@ const LoginPage = (props: Props) => {
 
       <div className={styles.formContainer}>
         <h3 className="font-weight-bold text-center">Admin Dashboard</h3>
-        <p className="text-center mt-3">Please login to access your administrators' dashboard</p>
+        <p className="text-center mt-3">Please login to access your dashboard</p>
         <LoginPageLoginForm />
       </div>
     </div>

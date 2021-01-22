@@ -11,8 +11,8 @@ const OnLoadAuthenticator = (props: Props) => {
   React.useEffect(() => {
     async function onLoad() {
       try {
-        // await Auth.currentSession();
-        props.setAuthenticated(true);
+        await Auth.currentSession();
+        // props.setAuthenticated(true);
       } catch (e) {
         if (e !== "No current user") {
           alert(e);

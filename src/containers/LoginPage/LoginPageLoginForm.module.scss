@@ -1,3 +1,5 @@
+@import "styles/colors.scss";
+
 .loginButton {
   color: #222222 !important;
   background: #fff !important;
@@ -8,6 +10,6 @@
 
   &:hover:enabled {
     color: #fff !important;
-    background: #005500 !important;
+    background: $primary-color-light-highlight !important;
   }
 }
